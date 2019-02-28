@@ -6,7 +6,7 @@ use Analyzer\Models\WordsCounter;
 use Analyzer\Services\CountedWordsSorter;
 use PHPUnit\Framework\TestCase;
 
-class ParserTest extends TestCase
+class CountedWordsSorterTest extends TestCase
 {
     /**
      * @test

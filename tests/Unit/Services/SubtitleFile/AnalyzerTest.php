@@ -7,7 +7,7 @@ use Analyzer\Services\SubtitleFile\Analyzer;
 use Analyzer\Services\SubtitleFile\Parser;
 use PHPUnit\Framework\TestCase;
 
-class ParserTest extends TestCase
+class AnalyzerTest extends TestCase
 {
     /**
      * @test
