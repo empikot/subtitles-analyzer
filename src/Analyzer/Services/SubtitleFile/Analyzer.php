@@ -29,9 +29,12 @@ class Analyzer
     {
         $words = $this->parser->getAllWordsWithoutSpecialCharacters($subtitleFileInfo);
         $wordsCounter = new WordsCounter();
-        array_map(function (string $word) use ($wordsCounter) {
-            $wordsCounter->countWord($word);
-        }, $words);
+        array_walk(
+            $words,
+            function (string $word) use ($wordsCounter) {
+                $wordsCounter->countWord($word);
+            }
+        );
         return $wordsCounter;
     }
 }
