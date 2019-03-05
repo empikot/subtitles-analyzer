@@ -30,7 +30,7 @@ class WordsCounter
      */
     public function countWord(string $word)
     {
-        $word = strtolower($word);
+        $word = mb_strtolower($word);
         if (!$this->hasAlreadyStartedCounting($word)) {
             $this->startCounting($word);
         }

@@ -2,6 +2,8 @@
 namespace Analyzer\ServiceProviders\SubtitleFile;
 
 use Analyzer\Services\SubtitleFile\Analyzer;
+use Analyzer\Services\SubtitleFile\ParseHandle\NoSpecialCharsExceptDiacriticsStrategy;
+use Analyzer\Services\SubtitleFile\ParseHandle\NoWordsWithSpecialCharsStrategy;
 use Analyzer\Services\SubtitleFile\Parser;
 use Analyzer\Services\SubtitleFile\Reader;
 use Pimple\Container;
@@ -14,7 +16,8 @@ class AnalyzerServiceProvider implements ServiceProviderInterface
         $pimple['subtitleFileAnalyzer'] = function ($container) {
             return new Analyzer(
                 new Parser(
-                    new Reader()
+                    new Reader(),
+                    new NoSpecialCharsExceptDiacriticsStrategy()
                 )
             );
         };

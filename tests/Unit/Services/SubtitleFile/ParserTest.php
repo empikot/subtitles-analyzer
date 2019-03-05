@@ -3,6 +3,7 @@
 namespace tests\Unit\Services\SubtitleFile;
 
 use Analyzer\Models\SubtitleFileInfo;
+use Analyzer\Services\SubtitleFile\ParseHandle\NoWordsWithSpecialCharsStrategy;
 use Analyzer\Services\SubtitleFile\Parser;
 use Analyzer\Services\SubtitleFile\Reader;
 use PHPUnit\Framework\TestCase;
@@ -94,7 +95,7 @@ class ParserTest extends TestCase
         // given
         $reader = \Mockery::mock(Reader::class);
         $reader->shouldReceive('getFileContents')->withAnyArgs()->andReturn($subtitleFileContents);
-        $parser = new Parser($reader);
+        $parser = new Parser($reader, new NoWordsWithSpecialCharsStrategy());
 
         // when
         $wordsList = $parser->getAllWordsWithoutSpecialCharacters(
